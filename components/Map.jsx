@@ -20,12 +20,18 @@ import GOV from ".././components/data/Governorate.json";
 import AREA from ".././components/data/Area.json";
 import CONSTRUCTION from ".././components/data/Construction_projects.json";
 
+
 function onEachConstruction(construction, layer) {
   console.log(construction.properties);
   const COProjectName = construction.properties.co_name_eng;
   const COProjectDescription = construction.properties.description_eng;
-  layer.bindPopup(COProjectName);
-  layer.bindPopup(COProjectDescription);  
+  const COProjectImage1 = "https://geo1.esmrt.com/image/" + construction.properties.image1;
+  const COProjectImage2 = "https://geo1.esmrt.com/image/" + construction.properties.image2;
+  const COProjectImage3 = "https://geo1.esmrt.com/image/" + construction.properties.image3;
+  const COProjectImage4 = "https://geo1.esmrt.com/image/" + construction.properties.image4;
+  layer.bindPopup(
+    "<strong>Project Name</strong><br></br>" + COProjectName + "<br></br> " + "<strong>Project Description</strong><br></br>" + COProjectDescription
+    );
 }
 const positions = [
   { name: "hier ist was", lat: 52, long: 8 },
