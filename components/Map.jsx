@@ -9,6 +9,7 @@ import {
   LayersControl,
   GeoJSON,
   FeatureGroup,
+  LayerGroup,
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css";
@@ -20,7 +21,11 @@ import AREA from ".././components/data/Area.json";
 import CONSTRUCTION from ".././components/data/Construction_projects.json";
 
 function onEachConstruction(construction, layer) {
-  console.log(construction);
+  console.log(construction.properties);
+  const COProjectName = construction.properties.co_name_eng;
+  const COProjectDescription = construction.properties.description_eng;
+  layer.bindPopup(COProjectName);
+  layer.bindPopup(COProjectDescription);  
 }
 const positions = [
   { name: "hier ist was", lat: 52, long: 8 },
