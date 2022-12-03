@@ -8,7 +8,7 @@ import {
   useMapEvents,
   LayersControl,
   GeoJSON,
-  WMSTileLayer,
+  FeatureGroup,
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css";
@@ -17,14 +17,15 @@ import BFJ from ".././components/data/Border_Final_join.json";
 import SPF from ".././components/data/Station_Point_Final.json";
 import GOV from ".././components/data/Governorate.json";
 import AREA from ".././components/data/Area.json";
-//////////////////////////// positions to map over
+import CONSTRUCTION from ".././components/data/Construction_projects.json";
 
+function onEachConstruction(construction, layer) {
+  console.log(construction);
+}
 const positions = [
   { name: "hier ist was", lat: 52, long: 8 },
   { name: "hier ist was anderes", lat: 51, long: 9 },
 ];
-
-//////////////////////////// our custom icon
 
 const greenIcon = L.icon({
   iconUrl: "leaf-green.png",
@@ -60,6 +61,7 @@ function LocationMarker() {
 }
 
 //////////////////////////// our map component
+
 
 export default function Map() {
   return (
@@ -99,13 +101,17 @@ export default function Map() {
       </LayersControl.BaseLayer>
       <LayersControl.Overlay radio name="Construction Projects">
         <GeoJSON
-        data={BFJ}
+        data={BFJ.features}
         />
       </LayersControl.Overlay>
       <LayersControl.Overlay radio name="Stations Projects">
         <GeoJSON
-        data={SPF}
+        data={SPF.features}
         />
+      </LayersControl.Overlay>
+      <LayersControl.Overlay radio name="Construction Projects">
+        <GeoJSON data={CONSTRUCTION.features} onEachFeature={onEachConstruction}>
+        </GeoJSON>                         
       </LayersControl.Overlay>
       </LayersControl>
       {positions.map((position) => {
