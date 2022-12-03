@@ -1,0 +1,65 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+.Header{
+  display: flex;
+  background-color: #162641;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.Buttons-Header{
+  Width: 60%;
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+.Button{
+  background-color: #063b66;
+  color: white;
+  border: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 30px;
+  padding-left: 30px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.Body{
+  Width: 100%;
+  text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Panel{
+  width: 40%;
+  background-color: #063b66 ;
+  color: white;
+  float: left;
+}
+.MapBox{
+  width: 60%;
+  float: left;
+}
+.Map {
+  width: 500px;
+  height: 1000px;
+}
